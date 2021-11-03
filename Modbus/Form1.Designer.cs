@@ -62,7 +62,7 @@ namespace Modbus
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSlaveId = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.cboState = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -332,13 +332,13 @@ namespace Modbus
             this.label25.TabIndex = 52;
             this.label25.Text = "Slave ID : ";
             // 
-            // textBox3
+            // txtSlaveId
             // 
-            this.textBox3.Location = new System.Drawing.Point(548, 86);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(162, 22);
-            this.textBox3.TabIndex = 53;
-            this.textBox3.Text = "1";
+            this.txtSlaveId.Location = new System.Drawing.Point(548, 86);
+            this.txtSlaveId.Name = "txtSlaveId";
+            this.txtSlaveId.Size = new System.Drawing.Size(162, 22);
+            this.txtSlaveId.TabIndex = 53;
+            this.txtSlaveId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSlaveId_KeyPress);
             // 
             // label26
             // 
@@ -355,7 +355,9 @@ namespace Modbus
             this.cboState.FormattingEnabled = true;
             this.cboState.Items.AddRange(new object[] {
             "03 Read Holding Register(4x)",
-            "Read Coils(0x)"});
+            "Read Coils(0x)",
+            "04 Input Register(3x)",
+            "02 Input Status(1x)"});
             this.cboState.Location = new System.Drawing.Point(549, 124);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(161, 24);
@@ -389,7 +391,7 @@ namespace Modbus
             this.Controls.Add(this.label27);
             this.Controls.Add(this.cboState);
             this.Controls.Add(this.label26);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtSlaveId);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtAdress);
@@ -462,7 +464,7 @@ namespace Modbus
         private System.Windows.Forms.TextBox txtAdress;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSlaveId;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox cboState;
         private System.Windows.Forms.Label label27;
