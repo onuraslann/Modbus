@@ -45,17 +45,17 @@ namespace Modbus
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtHoldingRegister0 = new System.Windows.Forms.TextBox();
-            this.txtHoldingRegister1 = new System.Windows.Forms.TextBox();
-            this.txtHoldingRegister2 = new System.Windows.Forms.TextBox();
-            this.txtHoldingRegister3 = new System.Windows.Forms.TextBox();
-            this.txtHoldingRegister6 = new System.Windows.Forms.TextBox();
-            this.txtHoldingRegister5 = new System.Windows.Forms.TextBox();
-            this.txtHoldingRegister7 = new System.Windows.Forms.TextBox();
-            this.txtHoldingRegister4 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer0 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer1 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer2 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer3 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer6 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer5 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer7 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer4 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.txtHoldingRegister8 = new System.Windows.Forms.TextBox();
-            this.txtHoldingRegister9 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer8 = new System.Windows.Forms.TextBox();
+            this.txtModbusServer9 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -133,160 +133,160 @@ namespace Modbus
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 177);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 17);
+            this.label3.Size = new System.Drawing.Size(108, 17);
             this.label3.TabIndex = 7;
-            this.label3.Text = "HoldingRegister0";
+            this.label3.Text = "ModbusServer0";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 207);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 17);
+            this.label4.Size = new System.Drawing.Size(108, 17);
             this.label4.TabIndex = 8;
-            this.label4.Text = "HoldingRegister1";
+            this.label4.Text = "ModbusServer1";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 233);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 17);
+            this.label5.Size = new System.Drawing.Size(108, 17);
             this.label5.TabIndex = 9;
-            this.label5.Text = "HoldingRegister2";
+            this.label5.Text = "ModbusServer2";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 263);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 17);
+            this.label6.Size = new System.Drawing.Size(108, 17);
             this.label6.TabIndex = 10;
-            this.label6.Text = "HoldingRegister3";
+            this.label6.Text = "ModbusServer3";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(12, 291);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 17);
+            this.label7.Size = new System.Drawing.Size(108, 17);
             this.label7.TabIndex = 11;
-            this.label7.Text = "HoldingRegister4";
+            this.label7.Text = "ModbusServer4";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 317);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 17);
+            this.label8.Size = new System.Drawing.Size(108, 17);
             this.label8.TabIndex = 12;
-            this.label8.Text = "HoldingRegister5";
+            this.label8.Text = "ModbusServer5";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(12, 347);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 17);
+            this.label9.Size = new System.Drawing.Size(108, 17);
             this.label9.TabIndex = 13;
-            this.label9.Text = "HoldingRegister6";
+            this.label9.Text = "ModbusServer6";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(12, 372);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(117, 17);
+            this.label10.Size = new System.Drawing.Size(108, 17);
             this.label10.TabIndex = 14;
-            this.label10.Text = "HoldingRegister7";
+            this.label10.Text = "ModbusServer7";
             // 
-            // txtHoldingRegister0
+            // txtModbusServer0
             // 
-            this.txtHoldingRegister0.Location = new System.Drawing.Point(135, 174);
-            this.txtHoldingRegister0.Name = "txtHoldingRegister0";
-            this.txtHoldingRegister0.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister0.TabIndex = 15;
+            this.txtModbusServer0.Location = new System.Drawing.Point(135, 174);
+            this.txtModbusServer0.Name = "txtModbusServer0";
+            this.txtModbusServer0.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer0.TabIndex = 15;
             // 
-            // txtHoldingRegister1
+            // txtModbusServer1
             // 
-            this.txtHoldingRegister1.Location = new System.Drawing.Point(135, 202);
-            this.txtHoldingRegister1.Name = "txtHoldingRegister1";
-            this.txtHoldingRegister1.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister1.TabIndex = 16;
+            this.txtModbusServer1.Location = new System.Drawing.Point(135, 202);
+            this.txtModbusServer1.Name = "txtModbusServer1";
+            this.txtModbusServer1.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer1.TabIndex = 16;
             // 
-            // txtHoldingRegister2
+            // txtModbusServer2
             // 
-            this.txtHoldingRegister2.Location = new System.Drawing.Point(135, 230);
-            this.txtHoldingRegister2.Name = "txtHoldingRegister2";
-            this.txtHoldingRegister2.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister2.TabIndex = 17;
+            this.txtModbusServer2.Location = new System.Drawing.Point(135, 230);
+            this.txtModbusServer2.Name = "txtModbusServer2";
+            this.txtModbusServer2.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer2.TabIndex = 17;
             // 
-            // txtHoldingRegister3
+            // txtModbusServer3
             // 
-            this.txtHoldingRegister3.Location = new System.Drawing.Point(135, 258);
-            this.txtHoldingRegister3.Name = "txtHoldingRegister3";
-            this.txtHoldingRegister3.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister3.TabIndex = 18;
+            this.txtModbusServer3.Location = new System.Drawing.Point(135, 258);
+            this.txtModbusServer3.Name = "txtModbusServer3";
+            this.txtModbusServer3.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer3.TabIndex = 18;
             // 
-            // txtHoldingRegister6
+            // txtModbusServer6
             // 
-            this.txtHoldingRegister6.Location = new System.Drawing.Point(135, 344);
-            this.txtHoldingRegister6.Name = "txtHoldingRegister6";
-            this.txtHoldingRegister6.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister6.TabIndex = 19;
+            this.txtModbusServer6.Location = new System.Drawing.Point(135, 344);
+            this.txtModbusServer6.Name = "txtModbusServer6";
+            this.txtModbusServer6.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer6.TabIndex = 19;
             // 
-            // txtHoldingRegister5
+            // txtModbusServer5
             // 
-            this.txtHoldingRegister5.Location = new System.Drawing.Point(135, 314);
-            this.txtHoldingRegister5.Name = "txtHoldingRegister5";
-            this.txtHoldingRegister5.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister5.TabIndex = 20;
+            this.txtModbusServer5.Location = new System.Drawing.Point(135, 314);
+            this.txtModbusServer5.Name = "txtModbusServer5";
+            this.txtModbusServer5.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer5.TabIndex = 20;
             // 
-            // txtHoldingRegister7
+            // txtModbusServer7
             // 
-            this.txtHoldingRegister7.Location = new System.Drawing.Point(135, 372);
-            this.txtHoldingRegister7.Name = "txtHoldingRegister7";
-            this.txtHoldingRegister7.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister7.TabIndex = 21;
+            this.txtModbusServer7.Location = new System.Drawing.Point(135, 372);
+            this.txtModbusServer7.Name = "txtModbusServer7";
+            this.txtModbusServer7.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer7.TabIndex = 21;
             // 
-            // txtHoldingRegister4
+            // txtModbusServer4
             // 
-            this.txtHoldingRegister4.Location = new System.Drawing.Point(135, 286);
-            this.txtHoldingRegister4.Name = "txtHoldingRegister4";
-            this.txtHoldingRegister4.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister4.TabIndex = 22;
+            this.txtModbusServer4.Location = new System.Drawing.Point(135, 286);
+            this.txtModbusServer4.Name = "txtModbusServer4";
+            this.txtModbusServer4.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer4.TabIndex = 22;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(12, 405);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(117, 17);
+            this.label19.Size = new System.Drawing.Size(108, 17);
             this.label19.TabIndex = 40;
-            this.label19.Text = "HoldingRegister8";
+            this.label19.Text = "ModbusServer8";
             // 
-            // txtHoldingRegister8
+            // txtModbusServer8
             // 
-            this.txtHoldingRegister8.Location = new System.Drawing.Point(135, 400);
-            this.txtHoldingRegister8.Name = "txtHoldingRegister8";
-            this.txtHoldingRegister8.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister8.TabIndex = 41;
+            this.txtModbusServer8.Location = new System.Drawing.Point(135, 400);
+            this.txtModbusServer8.Name = "txtModbusServer8";
+            this.txtModbusServer8.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer8.TabIndex = 41;
             // 
-            // txtHoldingRegister9
+            // txtModbusServer9
             // 
-            this.txtHoldingRegister9.Location = new System.Drawing.Point(135, 428);
-            this.txtHoldingRegister9.Name = "txtHoldingRegister9";
-            this.txtHoldingRegister9.Size = new System.Drawing.Size(187, 22);
-            this.txtHoldingRegister9.TabIndex = 44;
+            this.txtModbusServer9.Location = new System.Drawing.Point(135, 428);
+            this.txtModbusServer9.Name = "txtModbusServer9";
+            this.txtModbusServer9.Size = new System.Drawing.Size(187, 22);
+            this.txtModbusServer9.TabIndex = 44;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(12, 433);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(117, 17);
+            this.label21.Size = new System.Drawing.Size(108, 17);
             this.label21.TabIndex = 45;
-            this.label21.Text = "HoldingRegister9";
+            this.label21.Text = "ModbusServer9";
             // 
             // label23
             // 
@@ -312,6 +312,7 @@ namespace Modbus
             this.txtAdress.Name = "txtAdress";
             this.txtAdress.Size = new System.Drawing.Size(162, 22);
             this.txtAdress.TabIndex = 50;
+            this.txtAdress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdress_KeyPress);
             // 
             // textBox2
             // 
@@ -395,17 +396,17 @@ namespace Modbus
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.txtHoldingRegister9);
-            this.Controls.Add(this.txtHoldingRegister8);
+            this.Controls.Add(this.txtModbusServer9);
+            this.Controls.Add(this.txtModbusServer8);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.txtHoldingRegister4);
-            this.Controls.Add(this.txtHoldingRegister7);
-            this.Controls.Add(this.txtHoldingRegister5);
-            this.Controls.Add(this.txtHoldingRegister6);
-            this.Controls.Add(this.txtHoldingRegister3);
-            this.Controls.Add(this.txtHoldingRegister2);
-            this.Controls.Add(this.txtHoldingRegister1);
-            this.Controls.Add(this.txtHoldingRegister0);
+            this.Controls.Add(this.txtModbusServer4);
+            this.Controls.Add(this.txtModbusServer7);
+            this.Controls.Add(this.txtModbusServer5);
+            this.Controls.Add(this.txtModbusServer6);
+            this.Controls.Add(this.txtModbusServer3);
+            this.Controls.Add(this.txtModbusServer2);
+            this.Controls.Add(this.txtModbusServer1);
+            this.Controls.Add(this.txtModbusServer0);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -421,7 +422,7 @@ namespace Modbus
             this.Controls.Add(this.btnBaglantıAc);
             this.Controls.Add(this.label1);
             this.Name = "form";
-            this.Text = "Form1";
+            this.Text = "Forms";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,17 +445,17 @@ namespace Modbus
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtHoldingRegister0;
-        private System.Windows.Forms.TextBox txtHoldingRegister1;
-        private System.Windows.Forms.TextBox txtHoldingRegister2;
-        private System.Windows.Forms.TextBox txtHoldingRegister3;
-        private System.Windows.Forms.TextBox txtHoldingRegister6;
-        private System.Windows.Forms.TextBox txtHoldingRegister5;
-        private System.Windows.Forms.TextBox txtHoldingRegister7;
-        private System.Windows.Forms.TextBox txtHoldingRegister4;
+        private System.Windows.Forms.TextBox txtModbusServer0;
+        private System.Windows.Forms.TextBox txtModbusServer1;
+        private System.Windows.Forms.TextBox txtModbusServer2;
+        private System.Windows.Forms.TextBox txtModbusServer3;
+        private System.Windows.Forms.TextBox txtModbusServer6;
+        private System.Windows.Forms.TextBox txtModbusServer5;
+        private System.Windows.Forms.TextBox txtModbusServer7;
+        private System.Windows.Forms.TextBox txtModbusServer4;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txtHoldingRegister8;
-        private System.Windows.Forms.TextBox txtHoldingRegister9;
+        private System.Windows.Forms.TextBox txtModbusServer8;
+        private System.Windows.Forms.TextBox txtModbusServer9;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
