@@ -67,6 +67,7 @@ namespace Modbus
             this.cboState = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.lblValue = new System.Windows.Forms.Label();
+            this.txtMesaj = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -382,11 +383,21 @@ namespace Modbus
             this.lblValue.TabIndex = 57;
             this.lblValue.Text = "?";
             // 
+            // txtMesaj
+            // 
+            this.txtMesaj.AutoSize = true;
+            this.txtMesaj.Location = new System.Drawing.Point(545, 291);
+            this.txtMesaj.Name = "txtMesaj";
+            this.txtMesaj.Size = new System.Drawing.Size(94, 17);
+            this.txtMesaj.TabIndex = 58;
+            this.txtMesaj.Text = "Hata Mesajı  :";
+            // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 450);
+            this.Controls.Add(this.txtMesaj);
             this.Controls.Add(this.lblValue);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.cboState);
@@ -469,6 +480,7 @@ namespace Modbus
         private System.Windows.Forms.ComboBox cboState;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label lblValue;
+        private System.Windows.Forms.Label txtMesaj;
     }
 }
 

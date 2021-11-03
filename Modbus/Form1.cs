@@ -26,6 +26,7 @@ namespace Modbus
             {
                 modbusClient = new ModbusClient(txtServerIPAdress.Text, port: 502);
                 modbusClient.Connect();
+
                 lblBaglantıDurumu.Text = "Baglantı Başarılı";
                 tmrModbusTcpIP.Enabled = true;
 
@@ -45,87 +46,95 @@ namespace Modbus
             //modbusClient.WriteMultipleRegisters(startingAddress: 0, new int[] { 11, 22, 33, 44, 55, 89,  44, 21 ,33});
 
             //modbusClient.
-          
-            if  (  lblValue.Text == "03 Read Holding Register(4x)")
+            //Convert.ToInt16(txtSlaveId.Text);
+            //modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+
+            try
             {
-                int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(startingAddress: Convert.ToInt16(txtAdress.Text), quantity: 10);
-
-
-                txtModbusServer0.Text = readHoldingRegisters[0].ToString();
-                txtModbusServer1.Text = readHoldingRegisters[1].ToString();
-                txtModbusServer2.Text = readHoldingRegisters[2].ToString();
-                txtModbusServer3.Text = readHoldingRegisters[3].ToString();
-                txtModbusServer4.Text = readHoldingRegisters[4].ToString();
-                txtModbusServer5.Text = readHoldingRegisters[5].ToString();
-                txtModbusServer6.Text = readHoldingRegisters[6].ToString();
-                txtModbusServer7.Text = readHoldingRegisters[7].ToString();
-                txtModbusServer8.Text = readHoldingRegisters[8].ToString();
-                txtModbusServer9.Text = readHoldingRegisters[9].ToString();
-            }
-
-
-
-
-            else if (lblValue.Text == "Read Coils(0x)")
-            {
-
-                bool[] readCoils = modbusClient.ReadCoils(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
-
-                txtModbusServer0.Text = readCoils[0].ToString();
-                txtModbusServer1.Text = readCoils[1].ToString();
-                txtModbusServer2.Text = readCoils[2].ToString();
-                txtModbusServer3.Text = readCoils[3].ToString();
-                txtModbusServer4.Text = readCoils[4].ToString();
-                txtModbusServer5.Text = readCoils[5].ToString();
-                txtModbusServer6.Text = readCoils[6].ToString();
-                txtModbusServer7.Text = readCoils[7].ToString();
-                txtModbusServer8.Text = readCoils[8].ToString();
-                txtModbusServer9.Text = readCoils[9].ToString();
-            }
-
-
-            else if ( lblValue.Text == "04 Input Register(3x)")
-            {
-
-                int[] inputRegister = modbusClient.ReadInputRegisters(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
-
-                txtModbusServer0.Text = inputRegister[0].ToString();
-                txtModbusServer1.Text = inputRegister[1].ToString();
-                txtModbusServer2.Text = inputRegister[2].ToString();
-                txtModbusServer3.Text = inputRegister[3].ToString();
-                txtModbusServer4.Text = inputRegister[4].ToString();
-                txtModbusServer5.Text = inputRegister[5].ToString();
-                txtModbusServer6.Text = inputRegister[6].ToString();
-                txtModbusServer7.Text = inputRegister[7].ToString();
-                txtModbusServer8.Text = inputRegister[8].ToString();
-                txtModbusServer9.Text = inputRegister[9].ToString();
-            }
-
-
-
-
-
-
-            else if (lblValue.Text == "02 Input Status(1x)")
-            {
-
-                bool[] inputStatus = modbusClient.ReadDiscreteInputs(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
-
-                for (int i = Convert.ToInt32(txtAdress.Text); i < 10; i++)
+                if (lblValue.Text == "03 Read Holding Register(4x)")
                 {
-                    txtModbusServer0.Text = inputStatus[0].ToString();
-                    txtModbusServer1.Text = inputStatus[1].ToString();
-                    txtModbusServer2.Text = inputStatus[2].ToString();
-                    txtModbusServer3.Text = inputStatus[3].ToString();
-                    txtModbusServer4.Text = inputStatus[4].ToString();
-                    txtModbusServer5.Text = inputStatus[5].ToString();
-                    txtModbusServer6.Text = inputStatus[6].ToString();
-                    txtModbusServer7.Text = inputStatus[7].ToString();
-                    txtModbusServer8.Text = inputStatus[8].ToString();
-                    txtModbusServer9.Text = inputStatus[9].ToString();
+                    //Convert.ToInt16(txtSlaveId.Text);
+                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+
+                    int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(startingAddress: Convert.ToInt16(txtAdress.Text), quantity: 10);
+
+                    txtModbusServer0.Text = readHoldingRegisters[0].ToString();
+                    txtModbusServer1.Text = readHoldingRegisters[1].ToString();
+                    txtModbusServer2.Text = readHoldingRegisters[2].ToString();
+                    txtModbusServer3.Text = readHoldingRegisters[3].ToString();
+                    txtModbusServer4.Text = readHoldingRegisters[4].ToString();
+                    txtModbusServer5.Text = readHoldingRegisters[5].ToString();
+                    txtModbusServer6.Text = readHoldingRegisters[6].ToString();
+                    txtModbusServer7.Text = readHoldingRegisters[7].ToString();
+                    txtModbusServer8.Text = readHoldingRegisters[8].ToString();
+                    txtModbusServer9.Text = readHoldingRegisters[9].ToString();
                 }
-              
+
+                else if (lblValue.Text == "Read Coils(0x)")
+                {
+                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+                    bool[] readCoils = modbusClient.ReadCoils(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
+
+                    txtModbusServer0.Text = readCoils[0].ToString();
+                    txtModbusServer1.Text = readCoils[1].ToString();
+                    txtModbusServer2.Text = readCoils[2].ToString();
+                    txtModbusServer3.Text = readCoils[3].ToString();
+                    txtModbusServer4.Text = readCoils[4].ToString();
+                    txtModbusServer5.Text = readCoils[5].ToString();
+                    txtModbusServer6.Text = readCoils[6].ToString();
+                    txtModbusServer7.Text = readCoils[7].ToString();
+                    txtModbusServer8.Text = readCoils[8].ToString();
+                    txtModbusServer9.Text = readCoils[9].ToString();
+                }
+
+
+                else if (lblValue.Text == "04 Input Register(3x)")
+                {
+                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+                    int[] inputRegister = modbusClient.ReadInputRegisters(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
+
+                    txtModbusServer0.Text = inputRegister[0].ToString();
+                    txtModbusServer1.Text = inputRegister[1].ToString();
+                    txtModbusServer2.Text = inputRegister[2].ToString();
+                    txtModbusServer3.Text = inputRegister[3].ToString();
+                    txtModbusServer4.Text = inputRegister[4].ToString();
+                    txtModbusServer5.Text = inputRegister[5].ToString();
+                    txtModbusServer6.Text = inputRegister[6].ToString();
+                    txtModbusServer7.Text = inputRegister[7].ToString();
+                    txtModbusServer8.Text = inputRegister[8].ToString();
+                    txtModbusServer9.Text = inputRegister[9].ToString();
+                }
+
+
+                else if (lblValue.Text == "02 Input Status(1x)")
+                {
+
+                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+                    bool[] inputStatus = modbusClient.ReadDiscreteInputs(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
+
+                    for (int i = Convert.ToInt32(txtAdress.Text); i < 10; i++)
+                    {
+                        txtModbusServer0.Text = inputStatus[0].ToString();
+                        txtModbusServer1.Text = inputStatus[1].ToString();
+                        txtModbusServer2.Text = inputStatus[2].ToString();
+                        txtModbusServer3.Text = inputStatus[3].ToString();
+                        txtModbusServer4.Text = inputStatus[4].ToString();
+                        txtModbusServer5.Text = inputStatus[5].ToString();
+                        txtModbusServer6.Text = inputStatus[6].ToString();
+                        txtModbusServer7.Text = inputStatus[7].ToString();
+                        txtModbusServer8.Text = inputStatus[8].ToString();
+                        txtModbusServer9.Text = inputStatus[9].ToString();
+
+                    }
+
+                }
             }
+            catch(Exception ex)
+            {
+                txtMesaj.Text = ex.Message;
+           
+            }
+        
 
 
 
@@ -149,17 +158,17 @@ namespace Modbus
         private void cboState_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblValue.Text = cboState.Text;
-           
+
         }
 
         private void txtAdress_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar)==false)
+            if (char.IsDigit(e.KeyChar) == false)
             {
                 e.Handled = true;
                 MessageBox.Show("Buraya Sadece Sayı giriniz");
             }
-           
+
         }
 
         private void txtSlaveId_KeyPress(object sender, KeyPressEventArgs e)
@@ -169,7 +178,7 @@ namespace Modbus
                 e.Handled = true;
                 MessageBox.Show("Buraya Sadece Sayı giriniz");
             }
-           
+
         }
     }
 }
