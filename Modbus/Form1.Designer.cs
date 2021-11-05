@@ -68,6 +68,8 @@ namespace Modbus
             this.label27 = new System.Windows.Forms.Label();
             this.lblValue = new System.Windows.Forms.Label();
             this.txtMesaj = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
+            this.txtPort = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -85,7 +87,7 @@ namespace Modbus
             this.btnBaglantıAc.Name = "btnBaglantıAc";
             this.btnBaglantıAc.Size = new System.Drawing.Size(187, 36);
             this.btnBaglantıAc.TabIndex = 1;
-            this.btnBaglantıAc.Text = "Baglantı Ac";
+            this.btnBaglantıAc.Text = "Connect";
             this.btnBaglantıAc.UseVisualStyleBackColor = true;
             this.btnBaglantıAc.Click += new System.EventHandler(this.btnBaglantıAc_Click);
             // 
@@ -95,7 +97,7 @@ namespace Modbus
             this.btnBaglantıKapat.Name = "btnBaglantıKapat";
             this.btnBaglantıKapat.Size = new System.Drawing.Size(187, 36);
             this.btnBaglantıKapat.TabIndex = 2;
-            this.btnBaglantıKapat.Text = "Baglantı Kapat";
+            this.btnBaglantıKapat.Text = "Disconnect";
             this.btnBaglantıKapat.UseVisualStyleBackColor = true;
             this.btnBaglantıKapat.Click += new System.EventHandler(this.btnBaglantıKapat_Click);
             // 
@@ -110,7 +112,7 @@ namespace Modbus
             // lblBaglantıDurumu
             // 
             this.lblBaglantıDurumu.AutoSize = true;
-            this.lblBaglantıDurumu.Location = new System.Drawing.Point(469, 26);
+            this.lblBaglantıDurumu.Location = new System.Drawing.Point(646, 26);
             this.lblBaglantıDurumu.Name = "lblBaglantıDurumu";
             this.lblBaglantıDurumu.Size = new System.Drawing.Size(102, 17);
             this.lblBaglantıDurumu.TabIndex = 5;
@@ -119,11 +121,11 @@ namespace Modbus
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(338, 26);
+            this.label2.Location = new System.Drawing.Point(580, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 17);
+            this.label2.Size = new System.Drawing.Size(60, 17);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Baglantı Durumu : ";
+            this.label2.Text = "Status : ";
             // 
             // tmrModbusTcpIP
             // 
@@ -134,72 +136,72 @@ namespace Modbus
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 177);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 17);
+            this.label3.Size = new System.Drawing.Size(119, 17);
             this.label3.TabIndex = 7;
-            this.label3.Text = "ModbusServer0";
+            this.label3.Text = "ModbusRegister0";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 207);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 17);
+            this.label4.Size = new System.Drawing.Size(119, 17);
             this.label4.TabIndex = 8;
-            this.label4.Text = "ModbusServer1";
+            this.label4.Text = "ModbusRegister1";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 233);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 17);
+            this.label5.Size = new System.Drawing.Size(119, 17);
             this.label5.TabIndex = 9;
-            this.label5.Text = "ModbusServer2";
+            this.label5.Text = "ModbusRegister2";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 263);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 17);
+            this.label6.Size = new System.Drawing.Size(119, 17);
             this.label6.TabIndex = 10;
-            this.label6.Text = "ModbusServer3";
+            this.label6.Text = "ModbusRegister3";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(12, 291);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 17);
+            this.label7.Size = new System.Drawing.Size(119, 17);
             this.label7.TabIndex = 11;
-            this.label7.Text = "ModbusServer4";
+            this.label7.Text = "ModbusRegister4";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 317);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 17);
+            this.label8.Size = new System.Drawing.Size(119, 17);
             this.label8.TabIndex = 12;
-            this.label8.Text = "ModbusServer5";
+            this.label8.Text = "ModbusRegister5";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(12, 347);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 17);
+            this.label9.Size = new System.Drawing.Size(119, 17);
             this.label9.TabIndex = 13;
-            this.label9.Text = "ModbusServer6";
+            this.label9.Text = "ModbusRegister6";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(12, 372);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 17);
+            this.label10.Size = new System.Drawing.Size(119, 17);
             this.label10.TabIndex = 14;
-            this.label10.Text = "ModbusServer7";
+            this.label10.Text = "ModbusRegister7";
             // 
             // txtModbusServer0
             // 
@@ -262,9 +264,9 @@ namespace Modbus
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(12, 405);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(108, 17);
+            this.label19.Size = new System.Drawing.Size(119, 17);
             this.label19.TabIndex = 40;
-            this.label19.Text = "ModbusServer8";
+            this.label19.Text = "ModbusRegister8";
             // 
             // txtModbusServer8
             // 
@@ -285,14 +287,14 @@ namespace Modbus
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(12, 433);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(108, 17);
+            this.label21.Size = new System.Drawing.Size(119, 17);
             this.label21.TabIndex = 45;
-            this.label21.Text = "ModbusServer9";
+            this.label21.Text = "ModbusRegister9";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(469, 205);
+            this.label23.Location = new System.Drawing.Point(546, 205);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(60, 17);
             this.label23.TabIndex = 48;
@@ -301,7 +303,7 @@ namespace Modbus
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(469, 251);
+            this.label24.Location = new System.Drawing.Point(545, 238);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(61, 17);
             this.label24.TabIndex = 49;
@@ -309,7 +311,7 @@ namespace Modbus
             // 
             // txtAdress
             // 
-            this.txtAdress.Location = new System.Drawing.Point(549, 202);
+            this.txtAdress.Location = new System.Drawing.Point(649, 200);
             this.txtAdress.Name = "txtAdress";
             this.txtAdress.Size = new System.Drawing.Size(162, 22);
             this.txtAdress.TabIndex = 50;
@@ -317,7 +319,7 @@ namespace Modbus
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(548, 246);
+            this.textBox2.Location = new System.Drawing.Point(648, 233);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(162, 22);
@@ -327,7 +329,7 @@ namespace Modbus
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(470, 89);
+            this.label25.Location = new System.Drawing.Point(545, 77);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(72, 17);
             this.label25.TabIndex = 52;
@@ -335,7 +337,7 @@ namespace Modbus
             // 
             // txtSlaveId
             // 
-            this.txtSlaveId.Location = new System.Drawing.Point(548, 86);
+            this.txtSlaveId.Location = new System.Drawing.Point(649, 74);
             this.txtSlaveId.Name = "txtSlaveId";
             this.txtSlaveId.Size = new System.Drawing.Size(162, 22);
             this.txtSlaveId.TabIndex = 53;
@@ -344,7 +346,7 @@ namespace Modbus
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(469, 127);
+            this.label26.Location = new System.Drawing.Point(543, 120);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(74, 17);
             this.label26.TabIndex = 54;
@@ -359,7 +361,7 @@ namespace Modbus
             "Read Coils(0x)",
             "04 Input Register(3x)",
             "02 Input Status(1x)"});
-            this.cboState.Location = new System.Drawing.Point(549, 124);
+            this.cboState.Location = new System.Drawing.Point(649, 117);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(161, 24);
             this.cboState.TabIndex = 55;
@@ -368,7 +370,7 @@ namespace Modbus
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(469, 164);
+            this.label27.Location = new System.Drawing.Point(545, 164);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(75, 17);
             this.label27.TabIndex = 56;
@@ -377,7 +379,7 @@ namespace Modbus
             // lblValue
             // 
             this.lblValue.AutoSize = true;
-            this.lblValue.Location = new System.Drawing.Point(550, 164);
+            this.lblValue.Location = new System.Drawing.Point(646, 164);
             this.lblValue.Name = "lblValue";
             this.lblValue.Size = new System.Drawing.Size(16, 17);
             this.lblValue.TabIndex = 57;
@@ -386,17 +388,35 @@ namespace Modbus
             // txtMesaj
             // 
             this.txtMesaj.AutoSize = true;
-            this.txtMesaj.Location = new System.Drawing.Point(545, 291);
+            this.txtMesaj.Location = new System.Drawing.Point(645, 286);
             this.txtMesaj.Name = "txtMesaj";
-            this.txtMesaj.Size = new System.Drawing.Size(94, 17);
+            this.txtMesaj.Size = new System.Drawing.Size(120, 17);
             this.txtMesaj.TabIndex = 58;
-            this.txtMesaj.Text = "Hata Mesajı  :";
+            this.txtMesaj.Text = "Error Messages  :";
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(327, 21);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(46, 17);
+            this.label111.TabIndex = 59;
+            this.label111.Text = "Port : ";
+            // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(393, 18);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(120, 22);
+            this.txtPort.TabIndex = 60;
             // 
             // form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 450);
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.label111);
             this.Controls.Add(this.txtMesaj);
             this.Controls.Add(this.lblValue);
             this.Controls.Add(this.label27);
@@ -481,6 +501,8 @@ namespace Modbus
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label lblValue;
         private System.Windows.Forms.Label txtMesaj;
+        private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.TextBox txtPort;
     }
 }
 

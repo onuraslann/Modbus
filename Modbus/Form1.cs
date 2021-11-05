@@ -22,19 +22,26 @@ namespace Modbus
 
         private void btnBaglantıAc_Click(object sender, EventArgs e)
         {
+            
             try
             {
-                modbusClient = new ModbusClient(txtServerIPAdress.Text, port: 502);
+                txtSlaveId.ReadOnly = true;
+                txtAdress.ReadOnly = true;
+                
+                modbusClient = new ModbusClient(txtServerIPAdress.Text, Convert.ToInt16(txtPort.Text));
+                
+          
                 modbusClient.Connect();
 
                 lblBaglantıDurumu.Text = "Baglantı Başarılı";
                 tmrModbusTcpIP.Enabled = true;
+             
 
             }
-            catch (Exception ex)
+            catch (Exception ex )
             {
 
-                lblBaglantıDurumu.Text = ex.ToString();
+                lblBaglantıDurumu.Text = ex.Message;
             }
 
         }
@@ -45,16 +52,42 @@ namespace Modbus
 
             //modbusClient.WriteMultipleRegisters(startingAddress: 0, new int[] { 11, 22, 33, 44, 55, 89,  44, 21 ,33});
 
-            //modbusClient.
-            //Convert.ToInt16(txtSlaveId.Text);
-            //modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+
+           
+           
+
 
             try
             {
                 if (lblValue.Text == "03 Read Holding Register(4x)")
                 {
-                    //Convert.ToInt16(txtSlaveId.Text);
-                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+                    try
+                    {
+                        modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        txtMesaj.Text = ex.Message;
+                    }
+
+
+
+
+                    if ((byte)Convert.ToInt16(txtSlaveId.Text) > 0 || (byte)Convert.ToInt16(txtSlaveId.Text) < 255)
+                        {
+
+
+
+                        }
+                    
+                    else
+                    {
+                        MessageBox.Show("Girdiğiniz SlaveId değeri 1 - 247 arasında olmalı");
+
+                        
+                    }
+
+                  
 
                     int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(startingAddress: Convert.ToInt16(txtAdress.Text), quantity: 10);
 
@@ -149,9 +182,23 @@ namespace Modbus
 
         private void btnBaglantıKapat_Click(object sender, EventArgs e)
         {
-            modbusClient.Disconnect();
-            lblBaglantıDurumu.Text = "Baglantı Kapalı";
-            tmrModbusTcpIP.Enabled = false;
+            
+            try
+            {
+               
+                modbusClient.Disconnect();
+                lblBaglantıDurumu.Text = "Baglantı Kapalı";
+                tmrModbusTcpIP.Enabled = false;
+                txtSlaveId.ReadOnly = false;
+                txtAdress.ReadOnly = false;
+
+            }
+            catch (Exception ex)
+            {
+              lblBaglantıDurumu.Text = ex.Message;
+            }
+
+
 
         }
 
