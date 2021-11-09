@@ -107,7 +107,7 @@ namespace Modbus
             this.txtServerIPAdress.Name = "txtServerIPAdress";
             this.txtServerIPAdress.Size = new System.Drawing.Size(187, 22);
             this.txtServerIPAdress.TabIndex = 3;
-            this.txtServerIPAdress.Text = "192.168.1.32";
+            this.txtServerIPAdress.Text = "192.168.1.34";
             // 
             // lblBaglantıDurumu
             // 

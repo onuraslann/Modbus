@@ -27,13 +27,14 @@ namespace Modbus
             {
                 txtSlaveId.ReadOnly = true;
                 txtAdress.ReadOnly = true;
-                
+                txtPort.ReadOnly = true;
+                txtServerIPAdress.ReadOnly = true;
                 modbusClient = new ModbusClient(txtServerIPAdress.Text, Convert.ToInt16(txtPort.Text));
                 
           
                 modbusClient.Connect();
 
-                lblBaglantıDurumu.Text = "Baglantı Başarılı";
+                lblBaglantıDurumu.Text = "Connection Open";
                 tmrModbusTcpIP.Enabled = true;
              
 
@@ -187,10 +188,12 @@ namespace Modbus
             {
                
                 modbusClient.Disconnect();
-                lblBaglantıDurumu.Text = "Baglantı Kapalı";
+                lblBaglantıDurumu.Text = "Disconnection ";
                 tmrModbusTcpIP.Enabled = false;
                 txtSlaveId.ReadOnly = false;
                 txtAdress.ReadOnly = false;
+                txtPort.ReadOnly = false;
+                txtServerIPAdress.ReadOnly = false;
 
             }
             catch (Exception ex)
