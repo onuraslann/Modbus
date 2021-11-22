@@ -16,7 +16,10 @@ namespace Modbus
     {
         ModbusClient modbusClient;
         private TextBox[] register;
-      
+        private TextBox[] register2;
+
+    
+        
     
         public Forms()
         {
@@ -26,8 +29,7 @@ namespace Modbus
         private void form_Load(object sender, EventArgs e)
         {
             cboState.Text = "03 Read Holding Register(4x)";
-            
-
+      
 
         }
 
@@ -47,21 +49,41 @@ namespace Modbus
 
 
                 modbusClient.Connect();
+
+
+                //label = new Label[Convert.ToInt32(txtquantity.Text)];
                 register = new TextBox[Convert.ToInt16(txtquantity.Text)];
-             
+                register2 = new TextBox[Convert.ToInt16(txtquantity.Text)];
+
+                for (int i =0; i < Convert.ToInt32(txtquantity.Text); i++)
+                {
+
+                    register2[i] = new TextBox();
+
+
+                    register2[i].Location = new Point(645, i * 15);
+                    register2[i].Size = new Size(70, 22);
+
+                    this.Controls.Add(register2[i]);
+                }
+
 
 
                 for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
                 {
+                 
+                   
 
-                    // Convert.ToInt32(txtAdress.Text)
                     register[i] = new TextBox();
-                    
+                
+
                     register[i].Location = new Point(713, (i) * 15);
-                    register[i].Size = new Size(87, 22);
+                    register[i].Size = new Size(150, 45);
                     this.Controls.Add(register[i]);
-                   
-                   
+
+
+
+
                 }
 
                 lblBaglantıDurumu.Text = "Connection Open";
@@ -92,15 +114,18 @@ namespace Modbus
 
                     modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
                     int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(startingAddress: Convert.ToInt16(txtAdress.Text), quantity: Convert.ToInt16(txtquantity.Text));
-                   
+                    
 
                     for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
                     {
-
+                        register2[i].Text = (Convert.ToInt16(txtAdress.Text) + (i)).ToString();
+                       
                         register[i].Text = readHoldingRegisters[i].ToString();
-                        
-                        
-                        
+
+
+
+
+
                     }
                 }
 
@@ -113,13 +138,14 @@ namespace Modbus
 
 
 
-                    for (int i = Convert.ToInt32(txtAdress.Text); i < Convert.ToInt32(txtquantity.Text); i++)
+                    for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
                     {
-                     
-                        register[i].Text = readCoils[i].ToString();
-                
 
-             }
+                        register2[i].Text = (Convert.ToInt16(txtAdress.Text) + (i)).ToString();
+                        register[i].Text = readCoils[i].ToString();
+
+                        
+                    }
 
                 }
 
@@ -130,12 +156,13 @@ namespace Modbus
                     int[] inputRegister = modbusClient.ReadInputRegisters(startingAddress: Convert.ToInt32(txtAdress.Text),  quantity: Convert.ToInt32(txtquantity)); 
                   
 
-                    for (int i = Convert.ToInt32(txtAdress.Text); i < Convert.ToInt32(txtquantity.Text); i++)
+                    for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
                     {
-                        
-                        register[i].Text = inputRegister[i].ToString();
-                        
+                        register2[i].Text = (Convert.ToInt16(txtAdress.Text) + (i)).ToString();
 
+                        register[i].Text = inputRegister[i].ToString();
+
+                        
 
 
                     }
@@ -153,11 +180,11 @@ namespace Modbus
 
                    
 
-                    for (int i = Convert.ToInt32(txtAdress.Text); i < Convert.ToInt32(txtquantity.Text); i++)
+                    for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
                     {
-          
+                        register2[i].Text = (Convert.ToInt16(txtAdress.Text) + (i)).ToString();
                         register[i].Text = inputStatus[i].ToString();
-                 
+                       
 
 
                     }
@@ -195,7 +222,9 @@ namespace Modbus
                 txtquantity.ReadOnly = false;
                 for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
                 {
+                    this.Controls.Remove(register2[i]);
                     this.Controls.Remove(register[i]);
+                  
                     //Scroll
 
                 }
