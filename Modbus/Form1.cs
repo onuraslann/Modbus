@@ -12,181 +12,179 @@ using EasyModbus.Exceptions;
 
 namespace Modbus
 {
-    public partial class form : Form
+    public partial class Forms : Form
     {
         ModbusClient modbusClient;
-        public form()
+        private TextBox[] register;
+      
+    
+        public Forms()
         {
             InitializeComponent();
         }
 
+        private void form_Load(object sender, EventArgs e)
+        {
+            cboState.Text = "03 Read Holding Register(4x)";
+            
+
+
+        }
+
         private void btnBaglantıAc_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
+                
                 txtSlaveId.ReadOnly = true;
                 txtAdress.ReadOnly = true;
                 txtPort.ReadOnly = true;
                 txtServerIPAdress.ReadOnly = true;
-                modbusClient = new ModbusClient(txtServerIPAdress.Text, Convert.ToInt16(txtPort.Text));
+                txtquantity.ReadOnly = true;
                 
-          
+                modbusClient = new ModbusClient(txtServerIPAdress.Text, Convert.ToInt16(txtPort.Text));
+
+
                 modbusClient.Connect();
+                register = new TextBox[Convert.ToInt16(txtquantity.Text)];
+             
+
+
+                for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
+                {
+
+                    // Convert.ToInt32(txtAdress.Text)
+                    register[i] = new TextBox();
+                    
+                    register[i].Location = new Point(713, (i) * 15);
+                    register[i].Size = new Size(87, 22);
+                    this.Controls.Add(register[i]);
+                   
+                   
+                }
 
                 lblBaglantıDurumu.Text = "Connection Open";
                 tmrModbusTcpIP.Enabled = true;
-             
+
 
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
 
                 lblBaglantıDurumu.Text = ex.Message;
             }
 
         }
+       
 
         private void tmrModbusTcpIP_Tick(object sender, EventArgs e)
         {
             tmrModbusTcpIP.Enabled = false;
 
-            //modbusClient.WriteMultipleRegisters(startingAddress: 0, new int[] { 11, 22, 33, 44, 55, 89,  44, 21 ,33});
-
-
-           
-           
-
+          
 
             try
             {
-                if (lblValue.Text == "03 Read Holding Register(4x)")
+
+                if (cboState.Text == "03 Read Holding Register(4x)")
                 {
-                    try
+
+                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+                    int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(startingAddress: Convert.ToInt16(txtAdress.Text), quantity: Convert.ToInt16(txtquantity.Text));
+                   
+
+                    for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
                     {
-                        modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
-                    }
-                    catch (Exception ex)
-                    {
-                        txtMesaj.Text = ex.Message;
-                    }
 
-
-
-
-                    if ((byte)Convert.ToInt16(txtSlaveId.Text) > 0 || (byte)Convert.ToInt16(txtSlaveId.Text) < 255)
-                        {
-
-
-
-                        }
-                    
-                    else
-                    {
-                        MessageBox.Show("Girdiğiniz SlaveId değeri 1 - 247 arasında olmalı");
-
+                        register[i].Text = readHoldingRegisters[i].ToString();
+                        
+                        
                         
                     }
+                }
 
+                else if (cboState.Text == "Read Coils(0x)")
+                {
+
+                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+                    bool[] readCoils = modbusClient.ReadCoils(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: Convert.ToInt32(txtquantity.Text));
+                   
+
+
+
+                    for (int i = Convert.ToInt32(txtAdress.Text); i < Convert.ToInt32(txtquantity.Text); i++)
+                    {
+                     
+                        register[i].Text = readCoils[i].ToString();
+                
+
+             }
+
+                }
+
+
+                else if (cboState.Text == "04 Input Register(3x)")
+                {
+                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+                    int[] inputRegister = modbusClient.ReadInputRegisters(startingAddress: Convert.ToInt32(txtAdress.Text),  quantity: Convert.ToInt32(txtquantity)); 
                   
 
-                    int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(startingAddress: Convert.ToInt16(txtAdress.Text), quantity: 10);
-
-                    txtModbusServer0.Text = readHoldingRegisters[0].ToString();
-                    txtModbusServer1.Text = readHoldingRegisters[1].ToString();
-                    txtModbusServer2.Text = readHoldingRegisters[2].ToString();
-                    txtModbusServer3.Text = readHoldingRegisters[3].ToString();
-                    txtModbusServer4.Text = readHoldingRegisters[4].ToString();
-                    txtModbusServer5.Text = readHoldingRegisters[5].ToString();
-                    txtModbusServer6.Text = readHoldingRegisters[6].ToString();
-                    txtModbusServer7.Text = readHoldingRegisters[7].ToString();
-                    txtModbusServer8.Text = readHoldingRegisters[8].ToString();
-                    txtModbusServer9.Text = readHoldingRegisters[9].ToString();
-                }
-
-                else if (lblValue.Text == "Read Coils(0x)")
-                {
-                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
-                    bool[] readCoils = modbusClient.ReadCoils(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
-
-                    txtModbusServer0.Text = readCoils[0].ToString();
-                    txtModbusServer1.Text = readCoils[1].ToString();
-                    txtModbusServer2.Text = readCoils[2].ToString();
-                    txtModbusServer3.Text = readCoils[3].ToString();
-                    txtModbusServer4.Text = readCoils[4].ToString();
-                    txtModbusServer5.Text = readCoils[5].ToString();
-                    txtModbusServer6.Text = readCoils[6].ToString();
-                    txtModbusServer7.Text = readCoils[7].ToString();
-                    txtModbusServer8.Text = readCoils[8].ToString();
-                    txtModbusServer9.Text = readCoils[9].ToString();
-                }
-
-
-                else if (lblValue.Text == "04 Input Register(3x)")
-                {
-                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
-                    int[] inputRegister = modbusClient.ReadInputRegisters(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
-
-                    txtModbusServer0.Text = inputRegister[0].ToString();
-                    txtModbusServer1.Text = inputRegister[1].ToString();
-                    txtModbusServer2.Text = inputRegister[2].ToString();
-                    txtModbusServer3.Text = inputRegister[3].ToString();
-                    txtModbusServer4.Text = inputRegister[4].ToString();
-                    txtModbusServer5.Text = inputRegister[5].ToString();
-                    txtModbusServer6.Text = inputRegister[6].ToString();
-                    txtModbusServer7.Text = inputRegister[7].ToString();
-                    txtModbusServer8.Text = inputRegister[8].ToString();
-                    txtModbusServer9.Text = inputRegister[9].ToString();
-                }
-
-
-                else if (lblValue.Text == "02 Input Status(1x)")
-                {
-
-                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
-                    bool[] inputStatus = modbusClient.ReadDiscreteInputs(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: 10);
-
-                    for (int i = Convert.ToInt32(txtAdress.Text); i < 10; i++)
+                    for (int i = Convert.ToInt32(txtAdress.Text); i < Convert.ToInt32(txtquantity.Text); i++)
                     {
-                        txtModbusServer0.Text = inputStatus[0].ToString();
-                        txtModbusServer1.Text = inputStatus[1].ToString();
-                        txtModbusServer2.Text = inputStatus[2].ToString();
-                        txtModbusServer3.Text = inputStatus[3].ToString();
-                        txtModbusServer4.Text = inputStatus[4].ToString();
-                        txtModbusServer5.Text = inputStatus[5].ToString();
-                        txtModbusServer6.Text = inputStatus[6].ToString();
-                        txtModbusServer7.Text = inputStatus[7].ToString();
-                        txtModbusServer8.Text = inputStatus[8].ToString();
-                        txtModbusServer9.Text = inputStatus[9].ToString();
+                        
+                        register[i].Text = inputRegister[i].ToString();
+                        
+
+
+
+                    }
+
+
+                }
+
+
+                else if (cboState.Text == "02 Input Status(1x)")
+                {
+
+                    modbusClient.UnitIdentifier = (byte)Convert.ToInt16(txtSlaveId.Text);
+
+                    bool[] inputStatus = modbusClient.ReadDiscreteInputs(startingAddress: Convert.ToInt32(txtAdress.Text), quantity: Convert.ToInt32(txtquantity.Text));
+
+                   
+
+                    for (int i = Convert.ToInt32(txtAdress.Text); i < Convert.ToInt32(txtquantity.Text); i++)
+                    {
+          
+                        register[i].Text = inputStatus[i].ToString();
+                 
+
 
                     }
 
                 }
-            }
-            catch(Exception ex)
+                 
+                }
+             
+            
+            catch (Exception ex)
             {
                 txtMesaj.Text = ex.Message;
-           
+              
             }
-        
 
-
-
-            ////modbusClient.WriteMultipleCoils(startingAddress: 0, values: new[] { true, true, false, true, true, false, true, false, true, false });
-
-
+       
 
             tmrModbusTcpIP.Enabled = true;
-
 
         }
 
         private void btnBaglantıKapat_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
-               
+
                 modbusClient.Disconnect();
                 lblBaglantıDurumu.Text = "Disconnection ";
                 tmrModbusTcpIP.Enabled = false;
@@ -194,22 +192,21 @@ namespace Modbus
                 txtAdress.ReadOnly = false;
                 txtPort.ReadOnly = false;
                 txtServerIPAdress.ReadOnly = false;
+                txtquantity.ReadOnly = false;
+                for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
+                {
+                    this.Controls.Remove(register[i]);
+                    //Scroll
 
+                }
             }
             catch (Exception ex)
             {
-              lblBaglantıDurumu.Text = ex.Message;
+                lblBaglantıDurumu.Text = ex.Message;
             }
-
-
-
         }
 
-        private void cboState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lblValue.Text = cboState.Text;
-
-        }
+     
 
         private void txtAdress_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -230,5 +227,7 @@ namespace Modbus
             }
 
         }
+
+      
     }
-}
+    }
