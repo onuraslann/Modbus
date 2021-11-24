@@ -61,30 +61,20 @@ namespace Modbus
                     register2[i] = new TextBox();
 
 
-                    register2[i].Location = new Point(645, i * 15);
+                    register2[i].Location = new Point(645, i * 20);
                     register2[i].Size = new Size(70, 22);
 
                     this.Controls.Add(register2[i]);
-                }
-
-
-
-                for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
-                {
-                 
-                   
-
                     register[i] = new TextBox();
-                
 
-                    register[i].Location = new Point(713, (i) * 15);
+
+                    register[i].Location = new Point(713, (i) * 20);
                     register[i].Size = new Size(150, 45);
                     this.Controls.Add(register[i]);
 
-
-
-
                 }
+
+
 
                 lblBaglantıDurumu.Text = "Connection Open";
                 tmrModbusTcpIP.Enabled = true;

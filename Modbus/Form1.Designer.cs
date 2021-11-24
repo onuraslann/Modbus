@@ -224,7 +224,7 @@ namespace Modbus
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(1292, 401);
+            this.ClientSize = new System.Drawing.Size(1321, 401);
             this.Controls.Add(this.txtquantity);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAdress);
