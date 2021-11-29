@@ -16,7 +16,7 @@ namespace Modbus
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms());
+            Application.Run(new txtForms());
         }
     }
 }

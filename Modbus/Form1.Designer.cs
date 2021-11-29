@@ -1,7 +1,7 @@
 ﻿
 namespace Modbus
 {
-    partial class Forms
+    partial class txtForms
     {
         /// <summary>
         /// Required designer variable.
@@ -48,6 +48,8 @@ namespace Modbus
             this.label25 = new System.Windows.Forms.Label();
             this.txtquantity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -185,7 +187,7 @@ namespace Modbus
             // 
             this.txtMesaj.AutoSize = true;
             this.txtMesaj.BackColor = System.Drawing.Color.Gray;
-            this.txtMesaj.Location = new System.Drawing.Point(360, 199);
+            this.txtMesaj.Location = new System.Drawing.Point(12, 197);
             this.txtMesaj.Name = "txtMesaj";
             this.txtMesaj.Size = new System.Drawing.Size(120, 17);
             this.txtMesaj.TabIndex = 58;
@@ -218,13 +220,32 @@ namespace Modbus
             this.label2.TabIndex = 6;
             this.label2.Text = "Status : ";
             // 
-            // Forms
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Location = new System.Drawing.Point(578, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(314, 325);
+            this.panel1.TabIndex = 62;
+            // 
+            // txtSave
+            // 
+            this.txtSave.Location = new System.Drawing.Point(12, 80);
+            this.txtSave.Name = "txtSave";
+            this.txtSave.Size = new System.Drawing.Size(75, 23);
+            this.txtSave.TabIndex = 63;
+            this.txtSave.Text = "Save";
+            this.txtSave.UseVisualStyleBackColor = true;
+            this.txtSave.Click += new System.EventHandler(this.txtSave_Click);
+            // 
+            // txtForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(1321, 401);
+            this.ClientSize = new System.Drawing.Size(904, 346);
+            this.Controls.Add(this.txtSave);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtquantity);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAdress);
@@ -242,7 +263,10 @@ namespace Modbus
             this.Controls.Add(this.btnBaglantıKapat);
             this.Controls.Add(this.btnBaglantıAc);
             this.Controls.Add(this.label1);
-            this.Name = "Forms";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "txtForms";
             this.Text = "Modbus";
             this.Load += new System.EventHandler(this.form_Load);
             this.ResumeLayout(false);
@@ -270,6 +294,8 @@ namespace Modbus
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtquantity;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button txtSave;
     }
 }
 

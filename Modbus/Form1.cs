@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EasyModbus;
 using EasyModbus.Exceptions;
+using System.IO;
 
 namespace Modbus
 {
-    public partial class Forms : Form
+    public partial class txtForms : Form
     {
         ModbusClient modbusClient;
+      
         private TextBox[] register;
         private TextBox[] register2;
+  
 
-    
-        
-    
-        public Forms()
+        public txtForms()
         {
             InitializeComponent();
         }
@@ -29,13 +29,12 @@ namespace Modbus
         private void form_Load(object sender, EventArgs e)
         {
             cboState.Text = "03 Read Holding Register(4x)";
-      
-
+    
         }
 
         private void btnBaglantıAc_Click(object sender, EventArgs e)
         {
-
+            
             try
             {
                 
@@ -45,33 +44,42 @@ namespace Modbus
                 txtServerIPAdress.ReadOnly = true;
                 txtquantity.ReadOnly = true;
                 
+
+
                 modbusClient = new ModbusClient(txtServerIPAdress.Text, Convert.ToInt16(txtPort.Text));
 
 
                 modbusClient.Connect();
+              
+              register = new TextBox[Convert.ToInt16(txtquantity.Text)];
+                
+            register2 = new TextBox[Convert.ToInt16(txtquantity.Text)];
+                //register3 = new TextBox[Convert.ToInt16(txtquantity.Text)];
 
-
-                //label = new Label[Convert.ToInt32(txtquantity.Text)];
-                register = new TextBox[Convert.ToInt16(txtquantity.Text)];
-                register2 = new TextBox[Convert.ToInt16(txtquantity.Text)];
 
                 for (int i =0; i < Convert.ToInt32(txtquantity.Text); i++)
                 {
-
+                    
                     register2[i] = new TextBox();
+                  
+                    register2[i].Location = new Point(0, i * 20);
+                    //register2[i].Location = new Point(450, i * 20);
+                    register2[i].Size = new Size(50, 22);
+                    //this.Controls.Add(register2[i]);
+                    panel1.Controls.Add(register2[i]);
+                    //register3[i] = new TextBox();
 
+                    //register3[i].Location = new Point(500, i * 20);
+                    //register3[i].Size = new Size(50, 22);
+                    //this.Controls.Add(register3[i]);
 
-                    register2[i].Location = new Point(645, i * 20);
-                    register2[i].Size = new Size(70, 22);
-
-                    this.Controls.Add(register2[i]);
                     register[i] = new TextBox();
-
-
-                    register[i].Location = new Point(713, (i) * 20);
+                    //register[i].Location = new Point(500, (i) * 20);
+                    register[i].Location = new Point(0, (i) * 20);
                     register[i].Size = new Size(150, 45);
-                    this.Controls.Add(register[i]);
-
+                   
+                    //this.Controls.Add(register[i]);
+                    panel1.Controls.Add(register[i]);
                 }
 
 
@@ -89,12 +97,10 @@ namespace Modbus
 
         }
        
-
         private void tmrModbusTcpIP_Tick(object sender, EventArgs e)
         {
             tmrModbusTcpIP.Enabled = false;
-
-          
+       
 
             try
             {
@@ -109,11 +115,9 @@ namespace Modbus
                     for (int i = 0; i < Convert.ToInt32(txtquantity.Text); i++)
                     {
                         register2[i].Text = (Convert.ToInt16(txtAdress.Text) + (i)).ToString();
-                       
+                        
+                        
                         register[i].Text = readHoldingRegisters[i].ToString();
-
-
-
 
 
                     }
@@ -152,8 +156,6 @@ namespace Modbus
 
                         register[i].Text = inputRegister[i].ToString();
 
-                        
-
 
                     }
 
@@ -174,8 +176,7 @@ namespace Modbus
                     {
                         register2[i].Text = (Convert.ToInt16(txtAdress.Text) + (i)).ToString();
                         register[i].Text = inputStatus[i].ToString();
-                       
-
+  
 
                     }
 
@@ -215,7 +216,7 @@ namespace Modbus
                     this.Controls.Remove(register2[i]);
                     this.Controls.Remove(register[i]);
                   
-                    //Scroll
+                  
 
                 }
             }
@@ -247,6 +248,19 @@ namespace Modbus
 
         }
 
-      
+        private void txtSave_Click(object sender, EventArgs e)
+        {
+            string adres = @"D:\";
+            string dosyaAdi = Path.GetRandomFileName()+".txt";
+            if (!File.Exists(adres + dosyaAdi))
+            {
+                File.Create(adres + dosyaAdi);
+                MessageBox.Show(adres + dosyaAdi + " oluşturuldu");
+            }
+            else
+            {
+                MessageBox.Show("Dosya Mevcut");
+            }
+        }
     }
     }
